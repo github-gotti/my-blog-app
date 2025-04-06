@@ -7,7 +7,7 @@ type Blog = {
 };
 
 export default async function HomePage() {
-  const data = await client.get<{ contents: Blog[] }>({ endpoint: 'blog' });
+  const data = await client.get<{ contents: Blog[] }>({ endpoint: 'blogs' });
 
   return (
     <main className="p-4">
