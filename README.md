@@ -1,23 +1,22 @@
-## 👋 はじめまして！gotti です
+# my-blog-app
 
-現在、フルスタックエンジニアを目指して日々学習＆開発中です。
+Next.js × microCMSで作った静的ブログアプリケーションです。
 
----
+## 使用技術
 
-## 📌 ポートフォリオ
-
-### 📝 ブログアプリ（Next.js × microCMS）
-
-- 技術構成：Next.js (App Router), TypeScript, Tailwind CSS, microCMS, Vercel
-- 概要：記事一覧・詳細ページあり。静的生成とAPI連携を学ぶために制作
-- 🔗 [アプリを開く](https://my-blog-app-umber.vercel.app/)
-- 💻 [GitHubリポジトリ](https://github.com/github-gotti/my-blog-app)
-
----
-
-## 🛠 主なスキル
-
-- TypeScript / JavaScript
-- React / Next.js
+- Next.js (App Router)
+- TypeScript
 - Tailwind CSS
-- Git / GitHub
+- microCMS
+- Vercel
+
+## 機能
+
+- 記事一覧表示
+- 記事詳細ページ
+- API経由でのデータ取得
+- 静的サイト生成（SSG）
+
+## 公開URL
+
+[https://my-blog-app-umber.vercel.app/](https://my-blog-app-umber.vercel.app/)
