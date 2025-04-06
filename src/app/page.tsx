@@ -15,7 +15,7 @@ export default async function HomePage() {
       <ul>
         {data.contents.map((post) => (
           <li key={post.id}>
-            <a href={`/blog/${post.id}`}>{post.title}</a>
+            <a href={`/blogs/${post.id}`}>{post.title}</a>
           </li>
         ))}
       </ul>
