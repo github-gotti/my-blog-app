@@ -2,29 +2,46 @@
 // @ts-nocheck
 
 import { client } from '@/libs/client';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image'
 
-// 本体：記事詳細表示
 export default async function Page({ params }) {
   const blog = await client.get({
     endpoint: 'blogs',
     contentId: params.id,
   });
 
+  if (!blog) notFound();
+
+  const formattedDate = new Date(blog.createdAt).toLocaleDateString('ja-JP');
+
   return (
-    <main className="p-4">
-      <h1 className="text-2xl font-bold mb-4">{blog.title}</h1>
+    <main className="max-w-3xl mx-auto px-4 py-10">
+      <Link href="/blogs" className="text-blue-500 text-sm hover:underline block mb-4">
+        ← 記事一覧に戻る
+      </Link>
+
+      {blog.eyecatch?.url && (
+        <Image
+          src={blog.eyecatch.url}
+          alt="アイキャッチ"
+          width={800}
+          height={400}
+          className="w-full h-auto rounded-xl object-cover"
+        />
+      )}
+
+      <p className="text-sm text-gray-400 mb-1">投稿日：{formattedDate}</p>
+
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">
+        {blog.title}
+      </h1>
+
       <div
-        className="prose"
+        className="prose prose-invert prose-sm leading-relaxed max-w-none"
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
     </main>
   );
-}
-
-// ビルド時に Next にパラメータを教える
-export async function generateStaticParams() {
-  const data = await client.get({ endpoint: 'blogs' });
-  return data.contents.map((content) => ({
-    id: content.id,
-  }));
 }
