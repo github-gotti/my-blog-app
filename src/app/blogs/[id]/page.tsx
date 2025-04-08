@@ -18,7 +18,7 @@ export default async function Page({ params }) {
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
-      <Link href="/blogs" className="text-blue-500 text-sm hover:underline block mb-4">
+      <Link href="/" className="text-blue-500 text-sm hover:underline block mb-4">
         ← 記事一覧に戻る
       </Link>
 
